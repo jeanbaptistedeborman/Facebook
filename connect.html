@@ -1,31 +1,12 @@
 <html>
-    <head></head>
+    <head>
+        
+        <script src="scripts/facebook/facebook.js"></script>
+    </head>
     <body>
         <div id="fb-root"></div>
+
         <script>
-            launchInitSequence = function() {
-                FB.init({
-                    appId : '669311946433468',
-                    status : true, // check login status
-                    cookie : true, // enable cookies to allow the server to access the session
-                    xfbml : true // parse XFBML
-                });
-
-                FB.Event.subscribe('auth.authResponseChange', function(response) {
-
-                    if (response.status === 'connected') {
-
-                        useAPI();
-                    } else if (response.status === 'not_authorized') {
-
-                        FB.login();
-                    } else {
-                        FB.login();
-                    }
-                });
-            };
-
-            // Load the SDK asynchronously
             ( function(d) {
                     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
                     if (d.getElementById(id)) {
@@ -37,28 +18,6 @@
                     js.src = "http://connect.facebook.net/en_US/all.js";
                     ref.parentNode.insertBefore(js, ref);
                 }(document));
-
-            // Here we run a very simple test of the Graph API after login is successful.
-            // This useAPI() function is only called in those cases.
-            function useAPI() {
-                //console.log('Welcome!  Fetching your information.... ');
-                FB.api('/me', function(response) {
-                    //console.log('Good to see you, ' + response.name + '.');
-                });
-               //Test Like
-                FB.api({
-                    method : "pages.isFan",
-                    page_id : "607595305979967",
-                }, function(response) {
-                    console.log(response);
-                    if (response) {
-                        alert('You Likey');
-                    } else {
-                        alert('You not Likey :(');
-                    }
-                });
-
-            }
         </script>
 
         <div class="fb-like" data-href="https://www.facebook.com/pages/Testjbdeborman/607595305979967" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
@@ -66,11 +25,10 @@
         <!--
         Below we include the Login Button social plugin. This button uses the JavaScript SDK to
         present a graphical Login button that triggers the FB.login() function when clicked. -->
-        <div id = "enter" onClick ='launchInitSequence  ()'>
+        <div id = "enter" onClick ='Facebook.launchInitSequence  (Facebook.checkLike)'>
             ENTER
         </div>
         <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
 
-        From :  https://developers.facebook.com/docs/facebook-login/login-flow-for-web/#quickstart
     </body>
 </html>
