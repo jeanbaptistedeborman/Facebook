@@ -37,9 +37,6 @@ Facebook   =  {
             
             
             }, 
-            
-          
-
             useAPI:function () {
                 //console.log('Welcome!  Fetching your information.... ');
                 FB.api('/me', function(response) {
