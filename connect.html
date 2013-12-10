@@ -1,9 +1,9 @@
 <html>
     <head>
-        
+
         <script src="scripts/facebook/facebook.js"></script>
     </head>
-    <body>
+    <body onload="Facebook.launchInitSequence ()">
         <div id="fb-root"></div>
 
         <script>
@@ -18,17 +18,23 @@
                     js.src = "http://connect.facebook.net/en_US/all.js";
                     ref.parentNode.insertBefore(js, ref);
                 }(document));
+
+            Facebook.onLike = function() {
+
+                $("body").empty();
+
+            }
+
         </script>
 
-  <div class="fb-like" data-href="https://www.facebook.com/pages/Testjbdeborman/607595305979967https://www.facebook.com/pages/Testjbdeborman/607595305979967" data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
-  
-   <!--
+        <div class="fb-like" data-href="https://www.facebook.com/pages/Testjbdeborman/607595305979967https://www.facebook.com/pages/Testjbdeborman/607595305979967" data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
+
+        <!--
         Below we include the Login Button social plugin. This button uses the JavaScript SDK to
         present a graphical Login button that triggers the FB.login() function when clicked. -->
-        <div id = "enter" onClick ='Facebook.launchInitSequence  (Facebook.checkLike)'>
+        <div id = "enter" onclick ='Facebook.launchInitSequence  (Facebook.checkLike)'>
             ENTER
         </div>
-        <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
 
     </body>
 </html>

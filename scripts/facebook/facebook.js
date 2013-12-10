@@ -29,16 +29,16 @@ Facebook   =  {
                 }, function(response) {
                     console.log(response);
                     if (response) {
-                        alert('You Likey');
+                       Facebook.onLike
                     } else {
-                        alert('You not Likey :(');
+                          Facebook.onDoesNotLike
                     }
                 });
             
             
             }, 
             
-           
+          
 
             useAPI:function () {
                 //console.log('Welcome!  Fetching your information.... ');
@@ -48,6 +48,14 @@ Facebook   =  {
    
                 
 
+            }, 
+            onLike:function (){
+            //Event Placeholder; 
+            
+            }, 
+            onDoesNotLike:function (){
+            //Event Placeholder; 
+            
             }
 
 
