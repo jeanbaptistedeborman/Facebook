@@ -21,7 +21,7 @@
                 });
                 $.getScript('//connect.facebook.net/en_UK/all.js', function() {
                     FB.init({
-                        appId : '669311946433468',
+                        appId : '669311946433468',  
                     });
                     $('#loginbutton,#feedbutton').removeAttr('disabled');
                     FB.getLoginStatus(updateStatusCallback);
@@ -37,7 +37,7 @@
     <body>
        Code from  : https://developers.facebook.com/docs/javascript/howto/jquery/
         
-
+<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
         
     </body>
 </html>
